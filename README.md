@@ -1,9 +1,35 @@
-# React TypeScript Starter Pack
+# ToDo App
+A single-page application which helps a user to manage a list of tasks.
 
-To use this template click `Use this template`
+The link to the app:
+- [DEMO LINK](https://ifuride.github.io/todo_app/)
 
-### Available Scripts
+**Technologies and languages used in the project**
+- React;
+- React Router(v6);
+- JavaScript;
+- TypeScript;
+- HTML;
+- CSS;
+- BEM;
+- SASS (SCSS);
+- Fetch, REST API.
 
-`Deploy` - available to deploy your application to gh-pages
+**API description**
+A user was created in advance [here](https://mate-academy.github.io/react_student-registration/). The generated userId was saved in the App and used to display the user's name and load todos for this paticular user.
 
-`SCSS Preprocessor` - available to write your styles with modern style language
+All todos are stored in [the API](https://mate-academy.github.io/fe-students-api/todos).
+
+**Functionality**
+- User can see all their created todos which are stored in the API;
+- User can create a new todo;
+- User can updated an existing todo;
+- User can delete a todo;
+- User can mark a todo as completed;
+- User can mark a todo as not completed;
+- User can toggle all todos to completed status;
+- User can toggle all todos to not completed status;
+- User can delete all completed todos;
+- User can filter todos by active and completed status;
+- User can see the number of not completed todos;
+- User sees an error message on UI in case the server responds with an error.
