@@ -4,7 +4,7 @@ A single-page application which helps a user to manage a list of tasks.
 The link to the app:
 - [DEMO LINK](https://ifuride.github.io/todo_app/)
 
-**Technologies and languages used in the project**
+## Technologies and languages used in the project
 - React;
 - React Router(v6);
 - JavaScript;
@@ -15,12 +15,12 @@ The link to the app:
 - SASS (SCSS);
 - Fetch, REST API.
 
-**API description**
+## API description
 A user was created in advance [here](https://mate-academy.github.io/react_student-registration/). The generated userId was saved in the App and used to display the user's name and load todos for this paticular user.
 
 All todos are stored in [the API](https://mate-academy.github.io/fe-students-api/todos).
 
-**Functionality**
+## Functionality
 - User can see all their created todos which are stored in the API;
 - User can create a new todo;
 - User can updated an existing todo;
