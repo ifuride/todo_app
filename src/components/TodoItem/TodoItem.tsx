@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useRef, useEffect } from 'react';
 import classNames from 'classnames';
 import { Todo } from '../../types/Todo';
@@ -92,46 +93,48 @@ export const TodoItem: React.FC<Props> = ({
         { 'todolist__item--completed': completed },
         { 'todolist__item--editing': isInEditMode },
       )}
-      onDoubleClick={handleEditMode}
-      onTouchStart={handleDoubleTouch}
     >
-      {isInEditMode ? (
-        <form
-          onSubmit={handleTitleUpdate}
-        >
-          <input
-            type="text"
-            name="editTodoTitle"
-            className="todolist__edit-field"
-            value={newTitle}
-            onChange={handleTitleChange}
-            onBlur={handleTitleUpdate}
-            onKeyDown={handleTitleReset}
-            ref={inputRef}
-          />
-        </form>
-      ) : (
-        <div
-          className="todolist__view-item"
-        >
-          <input
-            type="checkbox"
-            id="checkbox"
-            name="toggleTodoStatus"
-            className="todolist__toggle-item"
-            onChange={handleStatusChange}
-            checked={completed}
-          />
-          <label htmlFor="checkbox">{title}</label>
-          <button
-            type="button"
-            className="todolist__destroy-item"
-            aria-label="Delete todo item"
-            data-cy="deleteTodo"
-            onClick={handleTodoRemove}
-          />
-        </div>
-      )}
+      <div
+        className="todolist__view-item"
+        onDoubleClick={handleEditMode}
+        onTouchStart={handleDoubleTouch}
+      >
+        {isInEditMode ? (
+          <form
+            onSubmit={handleTitleUpdate}
+          >
+            <input
+              type="text"
+              name="editTodoTitle"
+              className="todolist__edit-field"
+              // placeholder="Empty todo will be deleted"
+              value={newTitle}
+              onChange={handleTitleChange}
+              onBlur={handleTitleUpdate}
+              onKeyDown={handleTitleReset}
+              ref={inputRef}
+            />
+          </form>
+        ) : (
+          <>
+            <input
+              type="checkbox"
+              name="toggleTodoStatus"
+              className="todolist__toggle-item"
+              onChange={handleStatusChange}
+              checked={completed}
+            />
+            <label>{title}</label>
+            <button
+              type="button"
+              className="todolist__destroy-item"
+              aria-label="Delete todo item"
+              data-cy="deleteTodo"
+              onClick={handleTodoRemove}
+            />
+          </>
+        )}
+      </div>
     </li>
   );
 };

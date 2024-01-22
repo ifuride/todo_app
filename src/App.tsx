@@ -12,12 +12,11 @@ import {
   deleteTodo,
   updateTodo,
 } from './api/todos';
-import { USER_ID, getUser } from './api/user';
-import { User } from './types/User';
+
+const USER_ID = 7033;
 
 export const App: React.FC = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
-  const [user, setUser] = useState<User | null>(null);
   const [title, setTitle] = useState('');
   const [filterBy, setFilterBy] = useState<Status>(Status.ALL);
   const [errorMessage, setErrorMessage] = useState('');
@@ -44,12 +43,6 @@ export const App: React.FC = () => {
     localStorage.setItem('todos', JSON.stringify(todos));
   }, [todos]);
 
-  const getUserName = async () => {
-    const loadedUser = await getUser(USER_ID);
-
-    setUser(loadedUser);
-  };
-
   const loadTodos = async () => {
     try {
       const todosFromServer = await getTodos(USER_ID);
@@ -63,7 +56,6 @@ export const App: React.FC = () => {
   };
 
   useEffect(() => {
-    getUserName();
     loadTodos();
   }, []);
 
@@ -96,8 +88,6 @@ export const App: React.FC = () => {
     parameterToUpdate: Partial<Todo>,
   ) => {
     try {
-      await updateTodo(todoId, parameterToUpdate);
-
       setTodos((prevTodos: Todo[]) => prevTodos.map((todo) => {
         if (todo.id === todoId) {
           return { ...todo, ...parameterToUpdate };
@@ -105,6 +95,8 @@ export const App: React.FC = () => {
 
         return todo;
       }));
+
+      await updateTodo(todoId, parameterToUpdate);
     } catch {
       setErrorMessage('Unable to update a todo');
 
@@ -158,13 +150,6 @@ export const App: React.FC = () => {
   return (
     <div className="todoapp">
       <h1 className="todoapp__title">todos</h1>
-      {user ? (
-        <h2 className="todoapp__userTitle">
-          {`Hello, ${user.name}`}
-        </h2>
-      ) : (
-        <h2 className="todoapp__userTitle"> </h2>
-      )}
       <div className="todoapp__content">
         <Header
           title={title}

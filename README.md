@@ -1,5 +1,5 @@
 # ToDo App
-A single-page application which helps a user to manage a list of tasks.
+A web application which helps a user to manage a list of tasks.
 
 The link to the app:
 - [DEMO LINK](https://ifuride.github.io/todo_app/)
@@ -10,13 +10,12 @@ The link to the app:
 - JavaScript;
 - TypeScript;
 - HTML;
-- CSS;
 - BEM;
 - SASS (SCSS);
 - Fetch, REST API.
 
 ## API description
-A user was created in advance [here](https://mate-academy.github.io/react_student-registration/). The generated userId was saved in the App and used to display the user's name and load todos for this paticular user.
+A user was created in advance [here](https://mate-academy.github.io/react_student-registration/). The generated userId was saved in the App component and used to load todos for this paticular user.
 
 All todos are stored in [the API](https://mate-academy.github.io/fe-students-api/todos).
 
